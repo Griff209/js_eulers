@@ -5,7 +5,9 @@ function smarterFac(n) {
   fFactors = fermFac(n);
   lowerLimit = fFactors[1];
   if (upperLimit % 2 === 0) {
-    fFactors.push(upperLimit);
+    if (upperLimit === (n/2)) {
+        fFactors.push(upperLimit);
+    }
     pFac = upperLimit - 1;
   } else {pFac = upperLimit - 2;}
   bigFactors = trialDiv(n, pFac, lowerLimit, fFactors);
@@ -41,5 +43,8 @@ function buildFactors(n, factors) {
 
 function isPrime(n) {
   factors = smarterFac(n);
-  return factors.filter(factor => factor != (n || 1)).length > 0 ? false : true;
+  function nonPrFac(factor) {
+      return (factor != this) && (factor !== 1);
+    }
+  return factors.filter(nonPrFac, n).length > 0 ? false : true;
 }
