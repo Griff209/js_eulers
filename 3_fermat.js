@@ -1,3 +1,4 @@
+//smarterFac(600851475143).filter(factor => isPrime(factor));
 function smarterFac(n) {
   var upperLimit, fFactors, lowerLimit, pFac, bigFactors, factors;
   upperLimit = Math.floor(n/2);
@@ -36,4 +37,9 @@ function trialDiv(n, pFac, lowerLimit, factors = []) {
 function buildFactors(n, factors) {
   factors.forEach(function(factor){factors.push(n/factor)});
   return factors;
+}
+
+function isPrime(n) {
+  factors = smarterFac(n);
+  return factors.filter(factor => factor != (n || 1)).length > 0 ? false : true;
 }
