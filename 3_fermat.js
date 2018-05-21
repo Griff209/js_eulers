@@ -37,7 +37,3 @@ function buildFactors(n, factors) {
   factors.forEach(function(factor){factors.push(n/factor)});
   return factors;
 }
-
-/*
-486847,1234169,8462696833,716151937,408464633,87625999,10086647,5753023,1234169,1234169,486847,71,839,1471,6857,59569,104441,486847
-*/
