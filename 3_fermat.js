@@ -1,5 +1,5 @@
 function smarterFac(n) {
-  var upperLimit, lowerLimit, fFactors, factors, pFac;
+  var upperLimit, fFactors, lowerLimit, pFac, bigFactors, factors;
   upperLimit = Math.floor(n/2);
   fFactors = fermFac(n);
   lowerLimit = fFactors[1];
@@ -7,8 +7,8 @@ function smarterFac(n) {
     fFactors.push(upperLimit);
     pFac = upperLimit - 1;
   } else {pFac = upperLimit - 2;}
-  factors = trialDiv(n, pFac, lowerLimit, fFactors);
-  factors = buildFactors(n, factors);
+  bigFactors = trialDiv(n, pFac, lowerLimit, fFactors);
+  factors = buildFactors(n, bigFactors);
   return factors;
 } 
 
@@ -25,7 +25,7 @@ function fermFac(n) {
 } 
 
 function trialDiv(n, pFac, lowerLimit, factors = []) {
-  while (pFac >= lowerLimit) {
+  while (pFac > lowerLimit) {
     if (n % pFac === 0) {
       factors.push(pFac);
   } pFac -= 2;   
