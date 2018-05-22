@@ -38,7 +38,9 @@ Before building the sequence, the function checks the most recent value against 
 
 2b. Stop building the sequence when the designated number of terms have been calculated:  
 An alternative base case. User may designate a particular number of terms to be calculated, as opposed to an upper bound on the value of the greatest term. Strictly unnecessary in this task but helpful for experimentation and for use of the fibonacci function outside of the particular constraints of the task.
+
 3. Filter odd numbers out of the sequence: 
 As each term in the sequence depends upon the preceding two terms, even terms cannot easily be discarded while the sequence is being created. Instead, a simple Array.prototype.filter is applied to the completed sequence: (term => term % 2 === 0). Here we build on the knowledge gained in Task 1, making use of the modulo operator to find multiples of 2.
+
 4. Sum the collection of odd terms: 
 Use Array.prototype.reduce to reduce the collection to the sum of its parts - again building on the knowledge gained in Task 1.
