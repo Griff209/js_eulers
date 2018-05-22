@@ -14,5 +14,4 @@ function fibonacci(count, terms=[1], limit = 4000000) {
     return fibonacci(count - 1, terms, limit);
   }
 }
-
 fibonacci(33).filter(term => term % 2 === 0).reduce((fib1, fib2) => fib1 + fib2);
