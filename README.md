@@ -26,13 +26,13 @@ Task:
 Find the sum of all even members (whose value is no greater than 4,000,000) of the Fibonacci sequence 
 
 Solution: 
-The recursive program arrives at a solution by breaking the task into the following pieces:
-
+The recursive program arrives at a solution by breaking the task into the following pieces:  
 1. Build the fibonacci sequence:  
-Each term in the Fibonacci sequence is simply the sum of the preceding two terms. Starting in line 8, fibonacci() takes the current sequence, stores a copy with Array.prototype.slice(), and produces the next term by popping 2 terms from the copy and summing them. 
+a. Each term in the Fibonacci sequence is simply the sum of the preceding two terms. Starting in line 8, the function takes the current sequence and stores a copy with Array.prototype.slice(). Operating on a copy as opposed to the original sequence preserves the order and accuracy of the sequence with minimal effort.  
+b. The function produces the next term by popping 2 terms from the copy and summing them.  
+c. The next term is pushed into the original sequence.  
+d. The function calls itself using the new sequence and a decremented count argument (to guard against infinite recursion). This can all be done in an imperative style using loops, but I prefer the elegance and simplicity of the recursive style.  
 
-Operating on a copy as opposed to the original sequence preserves the order and accuracy of the sequence with minimal effort. 
-
-The next term is pushed into the sequence and the function calls itself using the new sequence and a decremented count argument (to guard against infinite recursion). This can all be done in an imperative style using loops, but I prefer the elegance and simplicity of the recursive style.   
 2a. Stop building the sequence when an upper limit on the value of a term is reached:
+
 2b. Stop building the sequence when the designated number of terms has been reached:  
