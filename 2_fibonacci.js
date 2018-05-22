@@ -11,7 +11,7 @@ function fibonacci(count, terms=[1], limit = 4000000) {
     former = lTerms.pop() || 0;
     next = latter + former;
     terms.push(next);
-    return fibonacci(count - 1, terms);
+    return fibonacci(count - 1, terms, limit);
   }
 }
 
