@@ -1,8 +1,8 @@
 function fibonacci(count, terms=[1], limit = 4000000) {
-  if (count === 1) {
-    return terms;
-  } else if (terms[terms.length - 1] > limit) {
+  if (terms[terms.length - 1] > limit) {
     terms.pop();
+    return terms;
+  } else if (count === 1) {
     return terms; 
   } else {
     var lTerms, latter, former, next;
