@@ -5,7 +5,7 @@ while (i > 0) {
   if (isMultiple) {
     multiples.push(i);
   } 
-  i -= 2;
+  i--;
 }
 
 multiples.reduce((acc, val) => acc + val);
