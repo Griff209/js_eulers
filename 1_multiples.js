@@ -7,5 +7,4 @@ while (i > 0) {
   } 
   i--;
 }
-
 multiples.reduce((acc, val) => acc + val);
