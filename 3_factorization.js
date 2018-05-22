@@ -30,6 +30,7 @@ function fermFac(n) {
 function trialDiv(n, pFac, lowerLimit, factors = []) {
   while (pFac > lowerLimit) {
     if (n % pFac === 0) {
+      //if !factors.includes(pFac)
       factors.push(pFac);
   } pFac -= 2;   
   } 
@@ -37,7 +38,11 @@ function trialDiv(n, pFac, lowerLimit, factors = []) {
 }
 
 function buildFactors(n, factors) {
-  factors.forEach(function(factor){factors.push(n/factor)});
+  factors.forEach(function(factor){
+    //fac = n/factor;
+    //if !factors.includes(fac)
+    factors.push(n/factor)
+  });
   return factors;
 }
 
