@@ -16,40 +16,40 @@ function smarterFac(n) {
 } 
 
 function fermFac(n) {  
-  var a, b, factors; 
+  var a, b, facs; 
   a = Math.ceil(Math.sqrt(n));
   b = (a*a) - n
   while (!Number.isInteger(Math.sqrt(b))) {
     a +=1;
     b = (a*a) - n;
   }
-  factors = [a - Math.sqrt(b), a + Math.sqrt(b)]
-  return factors;
+  facs = [a - Math.sqrt(b), a + Math.sqrt(b)]
+  return facs;
 } 
 
-function trialDiv(n, pFac, lowerLimit, factors = []) {
-  while (pFac > lowerLimit) {
-    if (n % pFac === 0) {
+function trialDiv(n, pFact, lowerLimit, facts = []) {
+  while (pFact > lowerLimit) {
+    if (n % pFact === 0) {
       //if !factors.includes(pFac)
-      factors.push(pFac);
-  } pFac -= 2;   
+      facts.push(pFact);
+  } pFact -= 2;   
   } 
-  return factors; 
+  return facts; 
 }
 
-function buildFactors(n, factors) {
-  factors.forEach(function(factor){
+function buildFactors(n, facs) {
+  facs.forEach(function(factor){
     //fac = n/factor;
     //if !factors.includes(fac)
-    factors.push(n/factor)
+    facs.push(n/factor)
   });
-  return factors;
+  return facs;
 }
 
 function isPrime(n) {
-  factors = smarterFac(n);
+  var nums = smarterFac(n);
   function nonPrFac(factor) {
       return (factor != this) && (factor !== 1);
     }
-  return factors.filter(nonPrFac, n).length > 0 ? false : true;
+  return nums.filter(nonPrFac, n).length > 0 ? false : true;
 }
