@@ -4,7 +4,7 @@ JS programs I wrote to solve problems from Project Euler
 # 1_multiples.js
 
 Task: 
-Find the sum of all the multiples of 3 or 5 below 1000.
+Find the sum of all multiples of 3 or 5, below 1000.
 
 Solution: 
 The mostly-imperative style program arrives at a solution by breaking the task into the following pieces:
@@ -23,7 +23,7 @@ Use Array.prototype.reduce to reduce the collection to the sum of its parts
 # 2_fibonacci.js
 
 Task: 
-Find the sum of all even members (whose value is no greater than 4,000,000) of the Fibonacci sequence 
+Find the sum of all even members of the Fibonacci sequence, below 4,000,000 
 
 Solution: 
 The recursive program arrives at a solution by breaking the task into the following pieces:
