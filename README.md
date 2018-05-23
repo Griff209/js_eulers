@@ -63,9 +63,9 @@ c. Typically, trial division checks every integer from 2 to n. Checking values g
 2. Find the factors of 600851475143:  
 a. smarterFac() runs the optimizations listed above, gathers factors using Fermat's method and a simple trial division function (trialDiv()), then finally attempts to fill in gaps caused by the use of a lower bound by pushing n/factor into the factors array (buildFactors()). 
 
-3. Find the prime factors of 600851475143:
+3. Find the prime factors of 600851475143:  
 a. Once the factors are gathered, I factor each factor. One could check the primality of a factor before pushing it into the factors array, but I was afraid that this would greatly slow the program or possibly break it. 
 b. Each array of factors-of-factor-of-600851475143 is put through a simple Array.protoype.filter, returning only those factors whose value is not 1 or n. If any such factors exist, n is not prime. 
 
-4. Find the largest of the prime factors of 600851475143:
+4. Find the largest of the prime factors of 600851475143:  
 a. Presently this is left as an exercise to the reader's mind and eyes. One of many possible improvements to the program would be to implement a simple loop, running through the prime factors and returning only the largest factor. 
