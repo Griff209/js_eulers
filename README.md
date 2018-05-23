@@ -3,11 +3,11 @@ JS programs I wrote to solve problems from Project Euler
 
 # 1_multiples.js
 
-Task: 
+Problem:  
 Find the sum of all multiples of 3 or 5, below 1000.
 
-Solution: 
-The mostly-imperative style program arrives at a solution by breaking the task into the following pieces:
+Solution:  
+The mostly-imperative style program arrives at a solution by breaking the problem into the following tasks:
 
 1. Check all integers less than 1000:  
 Start a while loop at 999, decrementing by 1 at each iteration, ending at i = 0
@@ -22,11 +22,11 @@ Use Array.prototype.reduce to reduce the collection to the sum of its parts
 
 # 2_fibonacci.js
 
-Task: 
+Problem:  
 Find the sum of all even members of the Fibonacci sequence, below 4,000,000 
 
-Solution: 
-The recursive program arrives at a solution by breaking the task into the following pieces:
+Solution:  
+The recursive program arrives at a solution by breaking the problem into the following tasks:
 
 1. Build the fibonacci sequence:  
 a. Each term in the Fibonacci sequence is simply the sum of the preceding two terms. Starting in line 8, the function takes the current sequence and stores a copy with Array.prototype.slice(). Operating on a copy as opposed to the original sequence preserves the order and accuracy of the sequence with minimal effort.  
@@ -43,3 +43,29 @@ As each term in the sequence depends upon the preceding two terms, even terms ca
 
 4. Sum the collection of odd terms:  
 Use Array.prototype.reduce to reduce the collection to the sum of its parts - again building on the knowledge gained in Task 1.
+
+# 3_factorization.js 
+
+Problem:  
+Find the largest prime factor of the number 600851475143
+
+Solution:  
+The problem is broken into four general tasks, solved through the composition of 5 primary functions.
+
+Note:  
+This program may not run to completion if executed in the browser. It is only tested to completion in node.js. More elegant solutions are surely possible but at the time of writing have not been discovered and implemented by the author.  
+
+1. Reduce the size of the task:  
+a. JavaScript in the browser did not take kindly to my initial, recursive approach to integer factorization. Likewise, node.js would not complete recursive operations on large numbers. In order to complete the task, I had to be able to run my programs, so I had to optimize. The first optimization is to loop while factoring, as opposed to making recursive function calls. 
+b. Prime numbers above 2 must necessarily be odd numbers. Therefore, the function trialDiv() is called with an odd number (lines 11-13) and decrements by 2 at each iteration of the loop (line 35), ignoring even numbers completely.
+c. Typically, trial division checks every integer from 2 to n. Checking values greater than x = n/2 is unnecessary - anything greater could only be x = n/y where (1 < y < 2), so I set an upper limit of the nearest odd integer to n/2. Likewise, I set a lower bound on the trial division by taking a first pass at factorization, fermFac(), implementing Fermat's factorization method as described at [Wikipedia](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method). The larger of the two factors returned by this method is used as the lower bound.
+
+2. Find the factors of 600851475143:  
+a. smarterFac() runs the optimizations listed above, gathers factors using Fermat's method and a simple trial division function (trialDiv()), then finally attempts to fill in gaps caused by the use of a lower bound by pushing n/factor into the factors array (buildFactors()). 
+
+3. Find the prime factors of 600851475143:
+a. Once the factors are gathered, I factor each factor. One could check the primality of a factor before pushing it into the factors array, but I was afraid that this would greatly slow the program or possibly break it. 
+b. Each array of factors-of-factor-of-600851475143 is put through a simple Array.protoype.filter, returning only those factors whose value is not 1 or n. If any such factors exist, n is not prime. 
+
+4. Find the largest of the prime factors of 600851475143:
+a. Presently this is left as an exercise to the reader's mind and eyes. One of many possible improvements to the program would be to implement a simple loop, running through the prime factors and returning only the largest factor. 
