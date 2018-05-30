@@ -31,7 +31,7 @@ function trialDiv(n, pFact, lowerLimit, facts = []) {
   while (pFact > lowerLimit) {
     if (n % pFact === 0) {
       facts.push(pFact);
-  } pFact -= 2;   
+    } pFact -= 2;   
   } 
   return facts; 
 }
