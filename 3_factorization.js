@@ -18,19 +18,18 @@ function smarterFac(n) {
 function fermFac(n) {  
   var a, b, facs; 
   a = Math.ceil(Math.sqrt(n));
-  b = (a*a) - n
+  b = (a*a) - n;
   while (!Number.isInteger(Math.sqrt(b))) {
     a +=1;
     b = (a*a) - n;
   }
-  facs = [a - Math.sqrt(b), a + Math.sqrt(b)]
+  facs = [a - Math.sqrt(b), a + Math.sqrt(b)];
   return facs;
 } 
 
 function trialDiv(n, pFact, lowerLimit, facts = []) {
   while (pFact > lowerLimit) {
     if (n % pFact === 0) {
-      //if !factors.includes(pFac)
       facts.push(pFact);
   } pFact -= 2;   
   } 
@@ -39,9 +38,7 @@ function trialDiv(n, pFact, lowerLimit, facts = []) {
 
 function buildFactors(n, facs) {
   facs.forEach(function(factor){
-    //fac = n/factor;
-    //if !factors.includes(fac)
-    facs.push(n/factor)
+    facs.push(n/factor);
   });
   return facs;
 }
